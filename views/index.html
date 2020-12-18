@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle simulator</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h2>Current vehicles in line</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Entrance</h3>
+                    </div>
+                    <div class="col-12">
+                        <ul class="list-group main-entrance lines">
+                            <li class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Vehicle: 1234</h5>
+                                    <div>
+                                        <button class="btn btn-info" title="Move vehicle"><i class="fa fa-car"></i> A</button>
+                                        <button class="btn btn-warning" title="Move vehicle"><i class="fa fa-car"></i> B</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Terminal A</h3>
+                    </div>
+                    <div class="col-12">
+                        <ul class="list-group terminal-a lines">
+                            <li class="list-group-item">Vehicle: 1233</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Terminal B</h3>
+                    </div>
+                    <div class="col-12">
+                        <ul class="list-group terminal-b lines">
+                            <li class="list-group-item">Vehicle: 1232</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Payment</h3>
+                    </div>
+                    <div class="col-12">
+                        <ul class="list-group payment lines">
+                            <li class="list-group-item">Vehicle: 1231</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Delivery</h3>
+                    </div>
+                    <div class="col-12">
+                        <ul class="list-group delivery lines">
+                            <li class="list-group-item">Vehicle: 1230</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <h2>Actions</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Entrance action</h3>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-12 col-md-3">
+                        <button class="create-vehicle btn btn-info"><i class="fa fa-plus"></i> New vehicle arrives</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Order actions</h3>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-12 col-md-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Terminal A</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <button class="start-order btn btn-success" data-id="1"><i class="fas fa-cash-register"></i> Terminal A: Start order</button>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <button class="end-order btn btn-danger" data-id="1"><i class="fas fa-cash-register"></i> Terminal A: End order</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Terminal B</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <button class="start-order btn btn-success" data-id="2"><i class="fas fa-cash-register"></i> Terminal B: Start order</button>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <button class="end-order btn btn-danger" data-id="2"><i class="fas fa-cash-register"></i> Terminal B: End order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Payment actions</h3>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-12 col-md-3">
+                        <button class="start-payment btn btn-success"><i class="fa fa-wallet"></i> Payment start</button>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <button class="end-payment btn btn-danger"><i class="fa fa-wallet"></i> Payment end</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Delivery action</h3>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-12 col-md-3">
+                        <button class="end-payment btn btn-danger"><i class="fa"></i> Delivery done</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/public/js/home.js"></script>
+</body>
+</html>
