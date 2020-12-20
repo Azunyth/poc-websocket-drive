@@ -30,6 +30,12 @@ io.on('connection', (socket) => {
         }
     });
 
+    socket.on('move_vehicle', (data) => {
+        if(clients.hasOwnProperty('python-script')) {
+            clients['python-script'].emit('move_vehicle', data);
+        }
+    });
+
     socket.on('disconnect', () => {
         console.log(socket.id  + ' disconnected');
     });
