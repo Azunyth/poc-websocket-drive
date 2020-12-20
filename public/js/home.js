@@ -37,7 +37,8 @@ $(document).ready(function() {
                     let $lineList = $('ul.' + line.key);
                     if($lineList.length && line.hasOwnProperty('vehicles') && line.vehicles.length) {
                         line.vehicles.forEach(function(vehicle) {
-                            $lineList.append(`<li class="list-group-item">
+                            let bg = vehicle.on_sensor ? '' : 'bg-danger';
+                            $lineList.append(`<li class="list-group-item ${bg}">
                                                 <div class="d-flex w-100 justify-content-between">
                                                     <h5 class="mb-1">Vehicle: ${vehicle.vehicle_id}</h5>
                                                     <div>
